@@ -13,7 +13,7 @@
 
 ## 📄 Abstract
 
-This paper presents an empirical security analysis of a real-world private 5G network through integrated network-level penetration testing and protocol fuzzing. The experimental testbed replicates a typical disaggregated Open Radio Access Network (O-RAN) deployment and includes key components such as User Equipment (UE), Radio Units (RU), Distributed Units (DU), Centralized Units (CU), and a standalone 5G Core Network (5GC). This architecture reflects modern industrial and enterprise 5G deployments, enabling a realistic and granular security evaluation. 
+This paper presents an empirical security analysis of a real-world private 5G network through integrated network-level penetration testing and protocol fuzzing. The experimental testbed replicates a typical disaggregated Open Radio Access Network (O-RAN) deployment and includes key components such as User Equipment (UE), Radio Units (RU), Distributed Units (DU), Centralized Units (CU), and a standalone 5G Core Network (5GC). This architecture reflects modern industrial and enterprise 5G deployments, enabling a realistic and granular security evaluation.
 
 Our methodology uses tools such as Wireshark, Nmap, OpenVAS, and custom fuzzers built on 5Greplay to investigate the attack surface of the testbed and the resilience of the network under adverse conditions.
 
@@ -27,4 +27,31 @@ Penetration testing identified several high-impact weaknesses, including exposed
 * **Methodology:** Full-scope Penetration Testing & Protocol Fuzzing
 * **Target Protocols:** Non-Access Stratum (NAS), Stream Control Transmission Protocol (SCTP)
 * **Tooling:** Wireshark, Nmap, OpenVAS, 5Greplay
-* **Critical Findings:** High-impact interface exposures, unauthenticated database access, and control-plane instability via malformed packet injection.
+* **Critical Findings:** High-impact interface exposures, unauthenticated database access, and control-plane instability via malformed packet injection
+
+---
+
+## 🚨 Security Findings Summary
+
+| Severity | Finding |
+|---|---|
+| 🔴 High | Exposed SSH & Telnet administrative services |
+| 🔴 High | MongoDB instances vulnerable to brute-force |
+| 🔴 High | Unsecured F1, E1, N2 inter-component interfaces |
+| 🟡 Medium | NAS message-parsing inconsistencies |
+| 🟡 Medium | SCTP retransmission spikes under fuzzing |
+| 🟢 Info | No runtime anomaly detection present |
+
+---
+
+## 📎 Citation
+
+```bibtex
+@inproceedings{5gsecurity2025,
+  title  = {Security Analysis of a Real-World Private 5G Network Deployment
+            through Pen Testing and Fuzzing},
+  booktitle = {IEEE Xplore},
+  year   = {2025},
+  url    = {https://ieeexplore.ieee.org/document/11269121}
+}
+```
