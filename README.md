@@ -2,3 +2,62 @@
 Offensive security assessments and custom exploit development against a private 5G O-RAN deployment, featuring AMF protocol fuzzing and core infrastructure compromise.
 
 Fuzzer.py file: A custom Boofuzz mutation fuzzer designed to target the 5G AMF signaling interface via TCP, triggering Control Plane DoS vulnerabilities through malformed packet injection.
+
+
+<div align="center">
+
+# Security Analysis of a Real-World Private 5G Network Deployment through Pen Testing and Fuzzing
+
+[![Published in IEEE](https://img.shields.io/badge/Published_in-IEEE-00629B?style=for-the-badge&logo=ieee&logoColor=white)](https://ieeexplore.ieee.org/document/11269121)
+[![Domain](https://img.shields.io/badge/Domain-5G_Offensive_Security-ce0914?style=for-the-badge)]()
+
+**[ 📖 Read the Full Publication on IEEE Xplore ](https://ieeexplore.ieee.org/document/11269121)**
+
+</div>
+
+---
+
+## 📄 Abstract
+
+This paper presents an empirical security analysis of a real-world private 5G network through integrated network-level penetration testing and protocol fuzzing. The experimental testbed replicates a typical disaggregated Open Radio Access Network (O-RAN) deployment and includes key components such as User Equipment (UE), Radio Units (RU), Distributed Units (DU), Centralized Units (CU), and a standalone 5G Core Network (5GC). This architecture reflects modern industrial and enterprise 5G deployments, enabling a realistic and granular security evaluation.
+
+Our methodology uses tools such as Wireshark, Nmap, OpenVAS, and custom fuzzers built on 5Greplay to investigate the attack surface of the testbed and the resilience of the network under adverse conditions.
+
+Penetration testing identified several high-impact weaknesses, including exposed administrative services (SSH, Telnet), poorly secured interfaces, and MongoDB instances susceptible to brute-force attacks. Protocol fuzzing of Non-Access Stratum (NAS) and Stream Control Transmission Protocol (SCTP) exposed message-parsing inconsistencies, retransmission spikes, CPU usage increases, and control-plane instability. Although complete impairments in network functionality were not observed, the lack of validation of input and anomaly detection indicates a critical need for improved security robustness in private 5G deployments.
+
+---
+
+## 🔬 Key Research Components
+
+* **Architecture Assessed:** Disaggregated O-RAN (UE, RU, DU, CU, Standalone 5GC)
+* **Methodology:** Full-scope Penetration Testing & Protocol Fuzzing
+* **Target Protocols:** Non-Access Stratum (NAS), Stream Control Transmission Protocol (SCTP)
+* **Tooling:** Wireshark, Nmap, OpenVAS, 5Greplay
+* **Critical Findings:** High-impact interface exposures, unauthenticated database access, and control-plane instability via malformed packet injection
+
+---
+
+## 🚨 Security Findings Summary
+
+| Severity | Finding |
+|---|---|
+| 🔴 High | Exposed SSH & Telnet administrative services |
+| 🔴 High | MongoDB instances vulnerable to brute-force |
+| 🔴 High | Unsecured F1, E1, N2 inter-component interfaces |
+| 🟡 Medium | NAS message-parsing inconsistencies |
+| 🟡 Medium | SCTP retransmission spikes under fuzzing |
+| 🟢 Info | No runtime anomaly detection present |
+
+---
+
+## 📎 Citation
+
+```bibtex
+@inproceedings{5gsecurity2025,
+  title  = {Security Analysis of a Real-World Private 5G Network Deployment
+            through Pen Testing and Fuzzing},
+  booktitle = {IEEE Xplore},
+  year   = {2025},
+  url    = {https://ieeexplore.ieee.org/document/11269121}
+}
+```
